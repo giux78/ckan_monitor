@@ -57,7 +57,7 @@ class MasterCrawler:
 
     def consumeData(self):
         red = self.r
-        while(red.llen("dataset_id") != 0):
+        while(red.llen("old_dataset_id") != 0):
             dataset_id = red.lpop("old_dataset_id")
             encRes = urllib.urlencode({"id" : unicode(dataset_id).encode('utf-8')})
             request_info = urllib2.Request(URL_DATI_GOV + "/api/3/action/package_show?" + encRes)
